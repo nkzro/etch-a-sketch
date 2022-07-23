@@ -1,5 +1,8 @@
 const canvas = document.querySelector('#canvas');
+const slider = document.querySelector('#slider');
+const output = document.querySelector('#output');
 
+//Sets grid number
 function makeGrid(number) {
     gridNum = number * number;
 
@@ -8,12 +11,28 @@ function makeGrid(number) {
         grid.style.width = `${100/number}%`;
         grid.style.height = `${100/number}%`;
         canvas.appendChild(grid);
-        console.log(grid.clientHeight);
     }
-
 }
 
-console.log(canvas.clientHeight)
+function clearCanvas() {
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.firstChild);
+    }
+}
+
+console.log(slider.value)
 console.log(canvas.clientWidth)
 
-makeGrid(50);
+
+output.textContent = slider.value;
+
+makeGrid(slider.value)
+
+
+
+slider.addEventListener('input',
+    function() {
+        output.textContent = this.value;
+        clearCanvas();
+        makeGrid(slider.value);
+    });
