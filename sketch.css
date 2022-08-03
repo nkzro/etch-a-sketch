@@ -1,5 +1,5 @@
 #canvas {
-    background-color: black;
+
     width: 70vmin;
     height: 70vmin;
     display: flex;
@@ -8,5 +8,10 @@
 
 #canvas > div {
     box-sizing: border-box;
-    border: outset 1px;
+
+
+}
+
+.change {
+    background-color: black;
 }

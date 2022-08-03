@@ -9,11 +9,18 @@
         <title>Etch-A-Sketch</title>
     </head>
     <body>
-        <label for="grid-size">
-            <input type="range" name="grid-size" id="slider" min="2" max="100">
-            <div id="output"></div>
+        <button id="shade" class="mode">Shade</button>
+        <button id="rainbow" class="mode">Rainbow</button>
+
+        <label for="color-picker">
+            Pick a color:
+            <input type="color" name="color-picker" id="color-picker" class="mode">
         </label>
 
         <div id="canvas"></div>
+        <label for="grid-size">
+            <input type="range" name="grid-size" id="slider" min="2" max="100" value="16">
+            <div id="output"></div>
+        </label>
     </body>
 </html>
