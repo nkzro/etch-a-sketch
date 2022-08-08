@@ -1,10 +1,7 @@
 const canvas = document.querySelector('#canvas');
 const slider = document.querySelector('#slider');
-const output = document.querySelector('#output');
-const picker = document.querySelector('#color-picker');
-const rainbow = document.querySelector('#rainbow');
-const shade = document.querySelector('#shade');
 const modes = document.querySelectorAll('.mode');
+const picker = document.querySelector('#color-picker');
 const cells = canvas.childNodes;
 
 //Sets grid number
@@ -16,39 +13,13 @@ function makeGrid(number) {
         grid.classList.add('cell');
         grid.style.width = `${100/number}%`;
         grid.style.height = `${100/number}%`;
-        // grid.style.backgroundColor = 'white';
+        grid.style.backgroundColor = 'white';
         canvas.appendChild(grid);
     }
-
     
     modes.forEach(mode => {
-        let tempShade = modes[0];
-        let tempRainbow = modes[1];
-        let tempColor = modes[2];
         mode.addEventListener('click', () => {
-            if (mode === tempShade){
-                tempShade.classList.add('active');
-                tempRainbow.classList.remove('active');
-                tempColor.classList.remove('active');
-                // sketch('shade');
-            }
-            else if (mode === tempRainbow) {
-                tempShade.classList.remove('active');
-                tempRainbow.classList.add('active');
-                tempColor.classList.add('active');
-                // sketch('rainbow')
-            }
-            else if (mode === tempColor) {
-                tempShade.classList.remove('active');
-                tempRainbow.classList.remove('active');
-                tempColor.classList.add('active');
-                // sketch('color-picker')
-            }
-
             sketch(mode.id);
-            if (mode.classList.contains('active')) {
-                console.log(tempShade);
-            }
         })
     });
 }
@@ -73,33 +44,30 @@ function getColor() {
     return picker.value;
 }
 
-
-// function makeShade() {
-//     console.log(cellColor)
-//     return cellColor;
-// }
-
 function sketch(mode) {
     cells.forEach(cell => {
         if (mode === 'rainbow') {
             cell.addEventListener('mouseenter', () => {
-                let cellColor;
-                cellColor = getRandomColor();
-                cell.style.backgroundColor = cellColor;
+                let cellColor = getRandomColor();
+                cell.style.backgroundColor = getRandomColor();
             });
         }
         else if (mode === 'color-picker') {
             cell.addEventListener('mouseenter', () => {
-                let cellColor;
-                cellColor = getColor();
+                let cellColor = getColor();
                 cell.style.backgroundColor = cellColor;
+                console.log()
             });
         }
-        else if (mode === 'shade') {
+        else if (mode === 'erase') {
             cell.addEventListener('mouseenter', () => {
-                let cellColor = cell.style.backgroundColor;
-                console.log(cellColor)
+                cell.style.backgroundColor = 'white';
             })
+        }
+        else if (mode === 'clear') {
+            cells.forEach(cell => {
+                cell.style.backgroundColor = 'white';
+            });
         }
     });
 }
