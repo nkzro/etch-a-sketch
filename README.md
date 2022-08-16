@@ -10,3 +10,5 @@ I spent too much time on this project than I had to because I wanted to add a sh
 
 You can check it out using the link:
 https://nkzro.github.io/etch-a-sketch/
+
+> PS: I haven't styled the project yet. I might return this in order to do so.
