@@ -1,5 +1,5 @@
 # etch-a-sketch
-I spent too much time on this project than I had to because I wanted to add a shading function where the cells would progressively darken when sketching. I couldn't figure it out. I, however was able to implement the major requirements of the etch-and-sketch project.
+I spent too much time on this project than I had to because I wanted to add a shading function where the cells would progressively darken when sketching and I couldn't figure it out. I, however, was able to implement the major requirements of the etch-and-sketch project.
 
 ### Functionalities
 * **Slider**: Use the slider to set the size of your canvas. It ranges from 2x2 to 100x100.
